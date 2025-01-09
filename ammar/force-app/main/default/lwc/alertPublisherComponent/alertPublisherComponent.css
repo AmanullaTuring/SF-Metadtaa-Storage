@@ -1,0 +1,11 @@
+/* Spacing for the input fields and the publish button */
+.lightning-input,
+.lightning-combobox,
+lightning-textarea {
+    margin-bottom: 1rem;
+}
+
+.publish-button {
+    width: 100%;
+    font-weight: 600;
+}

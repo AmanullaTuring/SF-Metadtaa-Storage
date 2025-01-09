@@ -1,0 +1,29 @@
+<template>
+    <div class="container">
+        <!-- Account Search Box -->
+        <c-search-box
+            style="margin-bottom: 20px;"
+            onsearchchange={handleSearchChange}>
+        </c-search-box>
+
+        <!-- Contacts Table -->
+        <c-contact-table
+            style="margin-bottom: 20px;"
+            contacts={contacts}
+            onsortchange={handleSortChange}>
+        </c-contact-table>
+
+        <!-- Pagination Controls -->
+        <c-pagination-controls
+            current-page={currentPage}
+            total-records={totalRecords}
+            page-size={pageSize}
+            onpagechange={handlePageChange}>
+        </c-pagination-controls>
+
+        <!-- Error Message -->
+        <template if:true={showError}>
+            <p class="error-message">{errorMessage}</p>
+        </template>
+    </div>
+</template>

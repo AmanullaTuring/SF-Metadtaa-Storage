@@ -1,0 +1,109 @@
+<template>
+    <div class="container">
+        <h2>Marketing-to-Lead Field Mapping with Templates</h2>
+        <p class="intro">
+            Select marketing fields, map them to lead fields, validate incoming data, and now save/load these mappings as templates for reuse.
+        </p>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span class="counter">Total Lead Fields: {totalLeadFieldsCount}</span>
+            <span class="counter">Current Mappings: {currentMappingsCount}</span>
+        </div>
+
+        <!-- Template Section -->
+        <div class="template-section">
+            <lightning-combobox
+                label="Select a Template"
+                placeholder="Choose a template"
+                value={selectedTemplateId}
+                options={templateOptions}
+                onchange={handleTemplateChange}>
+            </lightning-combobox>
+
+            <lightning-button
+                label="Apply Template"
+                variant="neutral"
+                onclick={handleApplyTemplate}
+                disabled={disableApplyTemplateButton}>
+            </lightning-button>
+
+            <lightning-button
+                label="Save as Template"
+                variant="neutral"
+                onclick={handleSaveAsTemplate}>
+            </lightning-button>
+        </div>
+
+        <!-- Field Selection Section -->
+        <div class="field-selection">
+            <lightning-combobox
+                label="Marketing Field"
+                placeholder="Select a Marketing Field"
+                value={selectedMarketingField}
+                options={marketingFieldOptions}
+                onchange={handleMarketingFieldChange}>
+            </lightning-combobox>
+
+            <lightning-combobox
+                label="Lead Field"
+                placeholder="Select a Lead Field"
+                value={selectedLeadField}
+                options={leadFieldOptions}
+                onchange={handleLeadFieldChange}>
+            </lightning-combobox>
+
+            <lightning-button
+                label="Add Mapping"
+                variant="brand"
+                class="add-button"
+                onclick={handleAddMapping}
+                disabled={disableAddButton}>
+            </lightning-button>
+        </div>
+
+        <!-- Mappings Table -->
+        <template if:true={hasMappings}>
+            <table class="mappings-table">
+                <thead>
+                    <tr>
+                        <th>Marketing Field</th>
+                        <th>Lead Field</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={currentMappings} for:item="mapping">
+                        <tr key={mapping.mktField}>
+                            <td>{mapping.mktField}</td>
+                            <td>{mapping.leadField}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+
+        <template if:true={noMappings}>
+            <p class="no-mappings">No mappings defined. Add one or apply a template above.</p>
+        </template>
+
+        <!-- Save Button -->
+        <template if:true={hasMappings}>
+            <lightning-button
+                label="Save Mappings"
+                variant="brand"
+                class="save-button"
+                onclick={handleSaveMappings}>
+            </lightning-button>
+        </template>
+
+        <!-- Success Message -->
+        <template if:true={showSuccessMessage}>
+            <p class="success-message">Mappings saved successfully!</p>
+        </template>
+
+        <!-- Error Message -->
+        <template if:true={errorMessage}>
+            <p class="error-message">{errorMessage}</p>
+        </template>
+    </div>
+</template>

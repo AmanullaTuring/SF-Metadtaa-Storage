@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Admin Alert Dashboard" icon-name="utility:warning" style="padding: 1rem; position: relative; text-align: center;">
+        <lightning-button 
+            label="Refresh" 
+            onclick={clearAlerts} 
+            style="position: absolute; top: 1rem; right: 1rem; background-color: #0070d2; color: white; padding: 0.5rem 1rem; border-radius: 8px;"
+        ></lightning-button>
+
+        <template if:true={alerts.length}>
+            <ul style="list-style-type: none; padding: 0; display: inline-block; text-align: left;">
+                <template for:each={alerts} for:item="alert">
+                    <li key={alert.timestamp} style="margin-bottom: 1rem; border-bottom: 1px solid #dcdcdc; padding-bottom: 1rem;">
+                        <strong style="font-size: 1.3rem; color: #d0021b;">{alert.title}</strong>
+                        <p style="margin: 0.5rem 0;">{alert.message}</p>
+                        <em style="font-size: 0.9rem; color: #555;">{alert.timestamp}</em>
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+        <template if:false={alerts.length}>
+            <p style="font-size: 1.2rem; color: #999;">No alerts at this time.</p>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,47 @@
+<template>
+    <div class="news-feed">
+        <!-- Header Section with Engagement Summary -->
+        <div class="header">
+            <h1>News Feed</h1>
+            <p>Total Likes: {totalLikes} | Total Comments: {totalComments}</p>
+            <!-- Toggle Button to Show or Hide Bookmarked Articles -->
+            <lightning-button label="Toggle Bookmarked Articles" onclick={toggleBookmarks}></lightning-button>
+        </div>
+
+        <!-- Trending Articles Section -->
+        <template if:true={trendingArticles.length}>
+            <div class="trending">
+                <h2>Trending Articles</h2>
+                <template for:each={trendingArticles} for:item="article">
+                    <p key={article.Id}>{article.title} - {article.likes} Likes</p>
+                </template>
+            </div>
+        </template>
+
+        <!-- Search Bar to Filter Articles by Title -->
+        <lightning-input
+            type="search"
+            placeholder="Search articles by title..."
+            onchange={handleSearch}>
+        </lightning-input>
+
+        <!-- Loading Spinner -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+
+        <!-- Articles List -->
+        <template if:false={isLoading}>
+            <template for:each={filteredArticles} for:item="article">
+                <c-article-item
+                    key={article.Id}
+                    article={article}
+                    onlike={handleLike}
+                    oncomment={handleComment}
+                    onbookmark={handleBookmark}
+                    onshare={handleShare}>
+                </c-article-item>
+            </template>
+        </template>
+    </div>
+</template>

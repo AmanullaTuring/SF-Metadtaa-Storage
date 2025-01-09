@@ -1,0 +1,38 @@
+/* Styling for each article item */
+.article-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.article-item h3 {
+    margin: 0 0 10px;
+}
+
+.article-item p {
+    margin: 10px 0;
+}
+
+/* Styling for buttons */
+.article-item button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.article-item button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the comment section */
+.comment-section input {
+    margin-right: 5px;
+    padding: 5px;
+}

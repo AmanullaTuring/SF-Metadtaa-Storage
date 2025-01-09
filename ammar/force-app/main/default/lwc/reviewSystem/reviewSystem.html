@@ -1,0 +1,64 @@
+<template>
+    <!-- Submission Section -->
+    <div class="review-submission">
+        <h2>Submit Your Review</h2>
+        <form onsubmit={handleSubmit} class="slds-form">
+            <!-- Product ID Field -->
+            <label for="productId">Product ID</label>
+            <input 
+                type="text" 
+                id="productId" 
+                name="productId" 
+                class="slds-input" 
+                onchange={handleFieldChange} />
+
+            <!-- Rating Field -->
+            <label for="rating">Rating (1-5)</label>
+            <input 
+                type="number" 
+                id="rating" 
+                name="rating" 
+                class="slds-input" 
+                min="1" 
+                max="5" 
+                onchange={handleFieldChange} />
+
+            <!-- Comment Field -->
+            <label for="comment">Comment</label>
+            <textarea 
+                id="comment" 
+                name="comment" 
+                class="slds-textarea" 
+                onchange={handleFieldChange}>
+            </textarea>
+
+            <!-- Submit Button -->
+            <button type="submit" class="slds-button slds-button_brand">
+                Submit Review
+            </button>
+        </form>
+    </div>
+
+    <!-- Display Section -->
+    <div class="review-display">
+        <h2>All Reviews</h2>
+
+        <!-- Display a simple message if no reviews exist -->
+        <template if:true={noReviews}>
+            <p>No reviews yet. Be the first to review!</p>
+        </template>
+
+        <!-- List all reviews -->
+        <template if:false={noReviews}>
+            <template for:each={reviews} for:item="rev">
+                <div key={rev.Id} class="review-item slds-box slds-m-bottom_small">
+                    <p><strong>Product:</strong> {rev.ProductId__c}</p>
+                    <p><strong>User:</strong> {rev.UserId__c}</p>
+                    <p><strong>Rating:</strong> {rev.Rating__c}</p>
+                    <p><strong>Comment:</strong> {rev.Comment__c}</p>
+                    <p><em>Submitted:</em> {rev.Timestamp__c}</p>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

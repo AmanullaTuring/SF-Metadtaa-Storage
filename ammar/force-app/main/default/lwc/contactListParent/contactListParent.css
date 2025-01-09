@@ -1,0 +1,6 @@
+.table-container {
+    height: 400px; /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ddd; /* Border for table container */
+    border-radius: 5px;
+}

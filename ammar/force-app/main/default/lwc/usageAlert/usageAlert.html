@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Usage Alert" style="background-color: #fff3e0; border-radius: 8px;">
+        <div class="slds-p-around_medium" style="font-family: Arial, sans-serif;">
+            <p style="font-size: 16px; color: #333333;">Usage Type: 
+                <span style="font-weight: bold; color: #0061f2;">{usageType}</span>
+            </p>
+            <p style="font-size: 14px; color: #666666;">Current Usage: 
+                <span style="font-weight: bold; color: #ff9800;">{currentUsage} / {usageLimit}</span>
+            </p>
+            <template if:true={isUsageAlert}>
+                <div style="background-color: #ffeb3b; padding: 10px; color: #000; font-weight: bold; font-size: 14px; border-radius: 4px; margin-top: 20px;">
+                    Your usage is nearing the limit! Please manage your resources to avoid disruptions.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

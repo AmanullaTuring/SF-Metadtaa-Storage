@@ -1,0 +1,36 @@
+<template>
+    <div style="display: flex; gap: 10px; justify-content: center; align-items: center;">
+        <!-- First Page Button -->
+        <lightning-button
+            style="padding: 5px 10px; font-size: 14px;"
+            label="First"
+            onclick={handleFirst}>
+        </lightning-button>
+
+        <!-- Previous Page Button -->
+        <lightning-button
+            style="padding: 5px 10px; font-size: 14px;"
+            label="Previous"
+            onclick={handlePrevious}>
+        </lightning-button>
+
+        <!-- Current Page Display -->
+        <p style="margin: 0; font-weight: bold;">
+            Page {currentPage} of {totalPages}
+        </p>
+
+        <!-- Next Page Button -->
+        <lightning-button
+            style="padding: 5px 10px; font-size: 14px;"
+            label="Next"
+            onclick={handleNext}>
+        </lightning-button>
+
+        <!-- Last Page Button -->
+        <lightning-button
+            style="padding: 5px 10px; font-size: 14px;"
+            label="Last"
+            onclick={handleLast}>
+        </lightning-button>
+    </div>
+</template>

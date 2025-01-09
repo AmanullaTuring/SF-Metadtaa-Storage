@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="dynamicDataFetcher">
+    <apiVersion>62.0</apiVersion>        <!-- API version for the component -->
+    <isExposed>true</isExposed>          <!-- Expose the component to be used in Salesforce -->
+    <targets>
+        <target>lightning__RecordPage</target>    <!-- Allow usage on record pages -->
+        <target>lightning__AppPage</target>       <!-- Allow usage in app pages -->
+        <target>lightning__HomePage</target><!-- Allow usage on home page -->
+    </targets>
+</LightningComponentBundle>

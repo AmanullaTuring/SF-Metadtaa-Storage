@@ -1,0 +1,61 @@
+<template>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Image Gallery</h1>
+        <div class="counters">
+            <span>Total: {totalImagesCount}</span>
+            <span>Favorites: {favoriteImagesCount}</span>
+        </div>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+        <lightning-input
+            type="file"
+            accept="image/*"
+            label="Upload Image"
+            onchange={handleUpload}>
+        </lightning-input>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <lightning-input
+            type="search"
+            label="Search Images"
+            placeholder="Type to search..."
+            value={searchKey}
+            onchange={handleSearch}>
+        </lightning-input>
+    </div>
+
+    <!-- Image Gallery Grid -->
+    <div class="gallery">
+        <template if:true={displayedImages}>
+            <template for:each={displayedImages} for:item="image">
+                <div key={image.Id} class="thumbnail">
+                    <img src={image.Url__c} alt={image.Name} />
+                    <lightning-button-icon
+                        icon-name="utility:delete"
+                        alternative-text="Delete"
+                        variant="border-filled"
+                        class="delete-button"
+                        data-id={image.Id}
+                        onclick={handleDelete}>
+                    </lightning-button-icon>
+                    <lightning-button-icon
+                        icon-name={image.iconName}
+                        alternative-text="Toggle Favorite"
+                        variant="border-filled"
+                        class="favorite-button"
+                        data-id={image.Id}
+                        onclick={handleToggleFavorite}>
+                    </lightning-button-icon>
+                </div>
+            </template>
+        </template>
+        <template if:true={noResults}>
+            <p>No images match your search. Upload a new one or adjust your search criteria.</p>
+        </template>
+    </div>
+</template>

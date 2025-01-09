@@ -1,0 +1,83 @@
+<template>
+    <lightning-card title="Premier Business Alerts" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <!-- Filter Controls -->
+            <div class="filter-controls slds-grid slds-wrap slds-p-bottom_medium">
+                <!-- Filter by Alert Type -->
+                <div class="slds-col slds-size_1-of-1 slds-p-right_small">
+                    <lightning-combobox
+                        name="filterType"
+                        label="Filter by Alert Type"
+                        value={selectedTypes}
+                        placeholder="Select Alert Types"
+                        options={typeOptions}
+                        onchange={handleTypeFilterChange}
+                        multiple>
+                    </lightning-combobox>
+                </div>
+
+                <!-- Filter by Priority -->
+                <div class="slds-col slds-size_1-of-1 slds-p-left_small">
+                    <lightning-combobox
+                        name="filterPriority"
+                        label="Filter by Priority"
+                        value={selectedPriorities}
+                        placeholder="Select Priorities"
+                        options={priorityOptions}
+                        onchange={handlePriorityFilterChange}
+                        multiple>
+                    </lightning-combobox>
+                </div>
+            </div>
+
+            <!-- Alert Display -->
+            <template if:true={hasAlerts}>
+                <template for:each={filteredAlerts} for:item="alert">
+                    <div
+                        key={alert.id}
+                        data-id={alert.id}
+                        class={alert.cssClass}
+                        role="alert">
+                        
+                        <!-- Icon for alert type -->
+                        <div class="alert__icon">
+                            <lightning-icon
+                                icon-name={alert.iconName}
+                                alternative-text="Alert Icon"
+                                size="small">
+                            </lightning-icon>
+                        </div>
+        
+                        <!-- Alert content: Title, Message, Timestamp -->
+                        <div class="alert__content">
+                            <h2 class="alert__title">{alert.title}</h2>
+                            <p class="alert__message">{alert.message}</p>
+                            <p class="alert__timestamp">Received at: {alert.timestamp}</p>
+                        </div>
+        
+                        <!-- View and Close buttons -->
+                        <div class="alert__actions">
+                            <lightning-button-icon
+                                icon-name="utility:preview"
+                                alternative-text="View Details"
+                                class="alert__button"
+                                data-id={alert.id}
+                                onclick={handleViewDetails}>
+                            </lightning-button-icon>
+                            <lightning-button-icon
+                                icon-name="utility:close"
+                                alternative-text="Close"
+                                class="alert__button"
+                                data-id={alert.id}
+                                onclick={handleClose}>
+                            </lightning-button-icon>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:false={hasAlerts}>
+                <p class="no-alerts">No new alerts.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Test Alert Publisher" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <!-- Input field for Alert Type -->
+            <lightning-input 
+                label="Alert Type"
+                value={alertType}
+                onchange={handleAlertTypeChange}
+                placeholder="e.g., Transaction, Account Update">
+            </lightning-input>
+
+            <!-- Combobox for Priority Selection -->
+            <lightning-combobox
+                label="Priority"
+                value={priority}
+                options={priorityOptions}
+                onchange={handlePriorityChange}
+                placeholder="Select Priority">
+            </lightning-combobox>
+
+            <!-- Textarea for Message -->
+            <lightning-textarea
+                label="Message"
+                value={message}
+                onchange={handleMessageChange}
+                placeholder="Enter the alert message here">
+            </lightning-textarea>
+
+            <!-- Button to Publish the Alert -->
+            <lightning-button
+                label="Publish Alert"
+                variant="brand"
+                onclick={handlePublish}
+                class="slds-m-top_medium publish-button">
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

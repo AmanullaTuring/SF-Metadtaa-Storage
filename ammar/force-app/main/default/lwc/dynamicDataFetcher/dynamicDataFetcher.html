@@ -1,0 +1,64 @@
+<template>
+    <lightning-card title="Dynamic Data Fetcher">
+        <div style="padding: 1rem; font-size: 16px;">
+            <!-- Object Type Combobox -->
+            <lightning-combobox 
+                name="objectType" 
+                label="Select Object" 
+                value={objectType} 
+                options={objectOptions} 
+                onchange={handleObjectChange}
+                style="margin-bottom: 1rem; width: 100%;"
+            >
+            </lightning-combobox>
+
+            <!-- Filter Name Input -->
+            <lightning-input 
+                label="Filter Name" 
+                value={filterName} 
+                onchange={handleFilterChange}
+                style="margin-bottom: 1rem; width: 100%;"
+            >
+            </lightning-input>
+
+            
+
+            <!-- Records Table -->
+            <template if:true={records}>
+                <lightning-datatable 
+                    data={records} 
+                    columns={columns} 
+                    key-field="Id"
+                    style="margin-bottom: 1rem; border: 1px solid #d8dde6; border-radius: 5px; width: 100%;"
+                >
+                </lightning-datatable>
+            </template>
+
+            <!-- Error Message -->
+            <template if:true={error}>
+                <div style="color: #d50000; font-weight: bold; margin-top: 1rem;">
+                    {error}
+                </div>
+            </template>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-controls" style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                <lightning-button 
+                    label="Previous" 
+                    onclick={previousPage} 
+                    disabled={isFirstPage}
+                    style="background-color: #f0f0f0; color: #0070d2;"
+                >
+                </lightning-button>
+
+                <lightning-button 
+                    label="Next" 
+                    onclick={nextPage} 
+                    disabled={isLastPage}
+                    style="background-color: #f0f0f0; color: #0070d2;"
+                >
+                </lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

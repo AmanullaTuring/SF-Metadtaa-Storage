@@ -1,0 +1,10 @@
+<template>
+    <!-- Textarea for the user to edit content -->
+    <lightning-textarea label="Document Content" value={content} onchange={handleChange}></lightning-textarea>
+
+    <!-- Button to dispatch update event -->
+    <lightning-button label="Update Content" onclick={handleUpdate}></lightning-button>
+
+    <!-- Error Message Display -->
+    <div if:true={errorMessage} class="error-message" style={errorStyle}>{errorMessage}</div>
+</template>

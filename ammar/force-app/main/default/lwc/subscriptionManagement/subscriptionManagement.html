@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Manage Subscription" style="background-color: #f4f6f9; border-radius: 8px;">
+        <div class="slds-p-around_medium" style="font-family: Arial, sans-serif;">
+            <lightning-combobox 
+                name="subscriptionTier" 
+                label="Select Subscription Tier" 
+                value={tierName} 
+                options={tierOptions} 
+                onchange={handleTierChange}
+                style="margin-bottom: 20px; width: 100%; border-radius: 4px; padding: 10px; border: 1px solid #d8dde6;">
+            </lightning-combobox>
+            <template if:true={tierFeatures}>
+                <p style="font-size: 16px; font-weight: bold; color: #0061f2;">Features for {tierName}:</p>
+                <ul style="list-style-type: none; padding: 0;">
+                    <template for:each={tierFeatures} for:item="feature">
+                        <li key={feature} style="font-size: 14px; color: #3c3c3c; padding: 5px 0;">&#10003; {feature}</li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>

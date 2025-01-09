@@ -1,0 +1,59 @@
+<template>
+    <div class="article-item">
+        <!-- Article Title -->
+        <h3 class="article-title">{article.title}</h3>
+
+        <!-- Engagement Section -->
+        <div class="engagement-section">
+            <p><strong>Likes:</strong> {article.likes}</p>
+            <p><strong>Comments:</strong> {article.comments.length}</p>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+            <!-- Like Button -->
+            <lightning-button
+                label="Like"
+                variant="brand"
+                onclick={likeArticle}>
+            </lightning-button>
+
+            <!-- Bookmark Button -->
+            <lightning-button
+                label={bookmarkLabel}
+                variant="neutral"
+                onclick={toggleBookmark}>
+            </lightning-button>
+
+            <!-- Share Button -->
+            <lightning-button
+                label="Share"
+                variant="success"
+                onclick={shareArticle}>
+            </lightning-button>
+        </div>
+
+        <!-- Comment Section -->
+        <div class="comment-section">
+            <lightning-input
+                class="comment-input"
+                type="text"
+                placeholder="Add a comment"
+                value={comment}
+                onchange={handleInput}>
+            </lightning-input>
+            <lightning-button
+                label="Comment"
+                variant="neutral"
+                onclick={addComment}>
+            </lightning-button>
+        </div>
+
+        <!-- Comments List -->
+        <ul class="comments-list">
+            <template for:each={article.comments} for:item="comment">
+                <li key={comment} class="comment-item">{comment}</li>
+            </template>
+        </ul>
+    </div>
+</template>

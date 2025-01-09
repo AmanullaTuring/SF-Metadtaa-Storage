@@ -1,0 +1,33 @@
+.responsive-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+header, main, footer {
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+    .responsive-container {
+        padding: 10px;
+    }
+
+    header, main, footer {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .responsive-container {
+        padding: 15px;
+    }
+
+    header, main, footer {
+        padding: 15px;
+    }
+}

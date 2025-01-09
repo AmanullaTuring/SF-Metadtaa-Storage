@@ -1,0 +1,125 @@
+/* General navigation styles */
+.navigation {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* Toggle button for mobile layout */
+.toggle-button {
+    display: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    margin: 10px 0;
+    background: none;
+    border: none;
+}
+
+/* Menu list */
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu.open {
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Menu button styles */
+.menu-button {
+    background: #f0f0f0;
+    border: 2px solid #333;
+    border-radius: 5px;
+    color: #333;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-button:hover {
+    background: #333;
+    color: white;
+}
+
+/* Submenu styles */
+.submenu {
+    display: none;
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    gap: 5px;
+}
+
+.menu-item:hover .submenu {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Submenu button styles */
+.submenu-button {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.submenu-button:hover {
+    background: #ddd;
+}
+
+/* Active state styles */
+.active > .menu-button,
+.active > .submenu-button {
+    background: #333;
+    color: white;
+    border-color: #f00;
+}
+
+/* Special item badge */
+.special-badge {
+    background: #f90;
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    margin-left: 5px;
+    border-radius: 3px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .toggle-button {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .menu-item {
+        padding: 15px;
+    }
+
+    .submenu {
+        position: static;
+        display: none;
+    }
+
+    .menu-item.active > .submenu {
+        display: block;
+    }
+}

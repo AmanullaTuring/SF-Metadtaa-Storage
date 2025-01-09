@@ -1,0 +1,13 @@
+.search-input {
+    width: 100%; /* Full width for better usability */
+    padding: 8px; /* Padding for a cleaner design */
+    border: 1px solid #ddd; /* Subtle border for a clean look */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Large font size for better readability */
+}
+
+.search-input:focus {
+    border-color: #0070d2; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 112, 210, 0.5); /* Add subtle glow */
+}

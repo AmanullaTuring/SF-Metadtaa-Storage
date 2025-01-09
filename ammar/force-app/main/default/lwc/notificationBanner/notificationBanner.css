@@ -1,0 +1,9 @@
+/* Style for notification banner */
+.notification-banner {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 15px;
+}

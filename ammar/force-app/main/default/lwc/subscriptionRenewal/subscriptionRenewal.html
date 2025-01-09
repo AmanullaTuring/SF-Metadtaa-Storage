@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Subscription Renewal" style="background-color: #e8f5e9; border-radius: 8px;">
+        <div class="slds-p-around_medium" style="font-family: Arial, sans-serif;">
+            <p style="font-size: 16px; color: #333333; margin-bottom: 10px;">Your current subscription tier: 
+                <span style="font-weight: bold; color: #0061f2;">{tierName}</span>
+            </p>
+            <p style="font-size: 14px; color: #666666;">Expiry Date: 
+                <span style="font-weight: bold; color: #f44336;">{expiryDate}</span>
+            </p>
+            <template if:true={isSubscriptionExpiring}>
+                <lightning-button 
+                    label="Renew Subscription" 
+                    onclick={renewSubscription}
+                    style="background-color: #4CAF50; color: white; border-radius: 5px; padding: 10px 20px; font-weight: bold; font-size: 14px; border: none; cursor: pointer; margin-top: 20px;">
+                </lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>

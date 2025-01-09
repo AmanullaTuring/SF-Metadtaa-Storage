@@ -1,0 +1,30 @@
+<template>
+    <div class="contact-list">
+        <!-- Dropdown for Group Selection -->
+        <lightning-combobox
+            name="groupSelector"
+            label="Select Account"
+            placeholder="Select an Account"
+            options={groupOptions}
+            value={selectedGroup}
+            onchange={handleGroupChange}>
+        </lightning-combobox>
+
+        <div class="contact-list">
+        <!-- Table with Sortable Headers -->
+        <template if:true={contacts}>
+            <lightning-datatable
+                key-field="Id"
+                data={contacts}
+                columns={columns}
+                onsort={handleSort}>
+            </lightning-datatable>
+        </template>
+
+        <!-- Error Message -->
+        <template if:true={showError}>
+            <p class="error-message">{errorMessage}</p>
+        </template>
+    </div>
+    </div>
+</template>

@@ -1,0 +1,98 @@
+/* Container for the entire mapping component */
+.container {
+    padding: 20px;
+    font-family: sans-serif;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Main heading style */
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Introductory text under the heading */
+.intro {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Bar that displays counters and other status info */
+.status-bar {
+    display: flex;
+    gap: 20px;      
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Individual counter styling */
+.counter {
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Section for field selection */
+.field-selection {
+    display: flex;
+    gap: 20px;       
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+/* Style for the "Add Mapping" button */
+.add-button {
+    height: 2.2rem;
+}
+
+/* Table that displays the current mappings */
+.mappings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+/* Table cells */
+.mappings-table th,
+.mappings-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* Header row background */
+.mappings-table th {
+    background: #f7f7f7;
+    text-align: left;
+}
+
+/* No mappings message */
+.no-mappings {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Save button spacing */
+.save-button {
+    margin-top: 10px;
+}
+
+/* Success message styling */
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 15px;
+}

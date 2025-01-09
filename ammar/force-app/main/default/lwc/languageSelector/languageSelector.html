@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Language Selector" icon-name="utility:world">
+        <lightning-combobox
+            label="Select Language"
+            value={selectedLanguage}
+            placeholder="Choose your language"
+            options={languageOptions}
+            onchange={handleLanguageChange}>
+        </lightning-combobox>
+
+        <p><strong>Notification Template:</strong></p>
+        <p>{notificationTemplate}</p>
+    </lightning-card>
+</template>

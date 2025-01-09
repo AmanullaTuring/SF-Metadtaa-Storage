@@ -1,0 +1,10 @@
+<template>
+    <!-- Lightning Datatable to Display Contacts -->
+    <lightning-datatable
+        style="width: 100%; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;"
+        key-field="Id"
+        data={contacts}
+        columns={columns}
+        onsort={handleSort}>
+    </lightning-datatable>
+</template>

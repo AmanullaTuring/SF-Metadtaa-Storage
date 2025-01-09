@@ -1,0 +1,36 @@
+<template>
+    <!-- Navigation container -->
+    <nav class="navigation">
+        <!-- Mobile toggle button -->
+        <button class="toggle-button" onclick={handleToggleMenu}>☰</button>
+
+        <!-- Main menu -->
+        <ul class={menuClass}>
+            <template for:each={menuItems} for:item="menuItem">
+                <li key={menuItem.path} class={menuItem.cssClass}>
+                    <!-- Main menu button -->
+                    <button class="menu-button" data-path={menuItem.path} onclick={handleMenuClick}>
+                        {menuItem.label}
+                    </button>
+
+                    <!-- Submenu -->
+                    <template if:true={menuItem.children}>
+                        <ul class="submenu">
+                            <template for:each={menuItem.children} for:item="child">
+                                <li key={child.path} class={child.cssClass}>
+                                    <!-- Submenu button -->
+                                    <button class="submenu-button" data-path={child.path} onclick={handleMenuClick}>
+                                        {child.label}
+                                        <template if:true={child.isSpecial}>
+                                            <span class="special-badge">Today's Special</span>
+                                        </template>
+                                    </button>
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+                </li>
+            </template>
+        </ul>
+    </nav>
+</template>

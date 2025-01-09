@@ -1,0 +1,44 @@
+<template>
+    <!-- Real-Time Performance Monitoring Template -->
+    <div class="dashboard">
+        <h1>Real-Time Performance Monitoring</h1>
+
+        <!-- Metrics Table -->
+        <div class="metrics-container">
+            <h2>Performance Metrics</h2>
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Metric</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={metrics} for:item="metric">
+                        <tr key={metric.timestamp}>
+                            <td>{metric.timestamp}</td>
+                            <td>{metric.type}</td>
+                            <td>{metric.value}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Resource Usage -->
+        <div class="resource-usage">
+            <h2>Resource Usage</h2>
+            <div>
+                <label>CPU Usage:</label>
+                <progress max="100" value={cpuUsage}></progress>
+                <span>{cpuUsage}%</span>
+            </div>
+            <div>
+                <label>Memory Usage:</label>
+                <progress max="100" value={memoryUsage}></progress>
+                <span>{memoryUsage}%</span>
+            </div>
+        </div>
+    </div>
+</template>
